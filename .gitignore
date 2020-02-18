@@ -1,0 +1,46 @@
+# Compiled files
+/out
+
+# Library files
+/lib
+
+# IDEA files
+/.idea
+
+# Target Dir
+/target
+
+# Log file
+*.log
+
+*.iml
+
+*.DS_Store
+
+# User-specific stuff
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries
+.idea/shelf
+.idea/encodings.xml
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+**.idea
