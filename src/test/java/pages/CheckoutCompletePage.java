@@ -3,16 +3,13 @@ package pages;
 import org.openqa.selenium.WebDriver;
 
 public class CheckoutCompletePage {
-    //TODO notice the duplication
     private final WebDriver driver;
-
+    //TODO more duplication
     public CheckoutCompletePage(WebDriver driver) {
-        //TODO notice the duplication
         this.driver = driver;
     }
 
-    public boolean IsLoaded()
-    {
+    public boolean isLoaded() {
         return driver.getCurrentUrl().contains("https://www.saucedemo.com/checkout-complete.html");
     }
 }
