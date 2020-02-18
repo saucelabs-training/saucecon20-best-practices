@@ -67,3 +67,31 @@
     the **Build and Test Statistics** tab should now show the current build runs as **parallelized (100%)** in the **Efficiency** tab:
 
     ![100% Parallel](images/100-parallel.png)
+    
+## Part Two: Remove Implicit Waits
+3. As it stands, our wait strategy is inefficient because of: **`implicitlyWait`**.    * Before
+    ```
+    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    ```
+    
+    * After
+    ```
+    WebDriverWait wait = new WebDriverWait(driver, 5);
+    wait.until(ExpectedConditions
+            .presenceOfElementLocated(locator));
+    
+    ```
+    However this still adds a bit of duplication. The best strategy is to add the **`WebDriverWait`** command to the **`BasePage`** class to avoid further duplication.
+    ```
+    > Note: the `ExpectedConditions` method must be imported using: `import org.openqa.selenium.support.ui.ExpectedConditions`
+
+3. Ensure each command replacement has a relevant `locator`
+4. Save and run `mvn test`
+
+
+## Part Two: Clean Up:
+1. Clean up all remaining duplication:
+- Base url can be removed
+- Constantly instantiating the WebDriverWait
+4. Save and run `mvn test`    
+1. Check out branch `07_cleanup`

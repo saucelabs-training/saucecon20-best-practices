@@ -2,18 +2,26 @@ package exercises;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pages.InventoryPage;
 import pages.LoginPage;
 
-public class LoginFeatureTest extends BaseTest {
+import java.util.concurrent.TimeUnit;
+
+public class LoginFeatureTest extends BaseTest  {
 
     @Test
     public void ShouldBeAbleToLogin() {
+
+        // TODO convert to explicit wait and remove duplication
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS) ;
+        //navigate to the url of the Sauce Labs Sample app
         LoginPage loginPage = new LoginPage(driver);
         loginPage.visit();
-        Assertions.assertTrue(loginPage.isLoaded());
 
-        InventoryPage inventoryPage = loginPage.login("standard_user", "secret_sauce");
-        Assertions.assertTrue(inventoryPage.isLoaded());
+        // Ignore the following selectors
+        String username = "standard_user";
+        String password = "secret_sauce";
+        loginPage.login(username, password);
+
+        Assertions.assertEquals("https://www.saucedemo.com/inventory.html", driver.getCurrentUrl());
     }
 }

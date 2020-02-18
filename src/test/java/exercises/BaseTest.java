@@ -1,22 +1,20 @@
 package exercises;
-
-import org.junit.jupiter.api.*;
+import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.rules.TestWatcher;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.RemoteWebDriver;;
-
-import java.lang.reflect.Method;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.lang.reflect.Method;
 
 public class BaseTest {
     protected WebDriver driver;
-
-    //TODO Switch away from Test NG and into JUnit
     @BeforeEach
     public void setup(Method method) throws MalformedURLException {
         String sauceUsername = System.getenv("SAUCE_USERNAME");
@@ -40,11 +38,12 @@ public class BaseTest {
         String sauceUrl = "https://ondemand.saucelabs.com/wd/hub";
         URL url = new URL(sauceUrl);
         driver = new RemoteWebDriver(url, capabilities);
+
     }
 
     @AfterEach
     public void teardown(TestWatcher result) {
-        ((JavascriptExecutor) driver).executeScript("sauce:job-result=" + (result.equals("testSuccessful") ? "passed" : "failed"));
+        ((JavascriptExecutor)driver).executeScript("sauce:job-result=" + (result.equals("testSuccessful") ? "passed" : "failed"));
         driver.quit();
     }
 }
