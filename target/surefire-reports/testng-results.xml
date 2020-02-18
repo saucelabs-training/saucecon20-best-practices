@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2019-04-23T20:27:43Z" name="Surefire suite" finished-at="2019-04-23T20:28:18Z" duration-ms="35017">
+    <groups>
+    </groups>
+    <test started-at="2019-04-23T20:27:43Z" name="Surefire test" finished-at="2019-04-23T20:28:18Z" duration-ms="35017">
+      <class name="exercises.FullJourneyTest">
+        <test-method signature="fullCustomerJourney(java.lang.reflect.Method)[pri:0, instance:exercises.FullJourneyTest@769e7ee8]" started-at="2019-04-23T15:27:43Z" name="fullCustomerJourney" finished-at="2019-04-23T15:28:18Z" duration-ms="35000" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void exercises.FullJourneyTest.fullCustomerJourney(java.lang.reflect.Method) throws java.net.MalformedURLException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- fullCustomerJourney -->
+      </class> <!-- exercises.FullJourneyTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
