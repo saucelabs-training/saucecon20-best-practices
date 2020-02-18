@@ -3,15 +3,19 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
-public class ConfirmationPage extends BasePage {
+public class ConfirmationPage {
+    //TODO duplication in the driver properties
+    private final WebDriver driver;
+
     public ConfirmationPage(WebDriver driver) {
-        super(driver);
+        this.driver = driver;
     }
+
+    //TODO duplication between this and LoginPage
     public void visit()
     {
+        //TODO duplication in URL with LoginPage
         driver.navigate().to("https://www.saucedemo.com/checkout-step-two.html");
     }
 
@@ -27,9 +31,8 @@ public class ConfirmationPage extends BasePage {
     }
     public CheckoutCompletePage FinishCheckout()
     {
-        String finished = ".btn_action.cart_button";
-        WebElement finishButton = driver.findElement(By.cssSelector(finished));
-        finishButton.click();
+        String finished =".btn_action.cart_button";
+        driver.findElement(By.cssSelector(finished)).click();
         return new CheckoutCompletePage(driver);
     }
 }

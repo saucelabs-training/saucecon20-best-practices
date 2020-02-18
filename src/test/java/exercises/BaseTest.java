@@ -1,5 +1,4 @@
 package exercises;
-import org.junit.After;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.rules.TestWatcher;
@@ -38,7 +37,6 @@ public class BaseTest {
         String sauceUrl = "https://ondemand.saucelabs.com/wd/hub";
         URL url = new URL(sauceUrl);
         driver = new RemoteWebDriver(url, capabilities);
-
     }
 
     @AfterEach

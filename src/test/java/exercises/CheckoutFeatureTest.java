@@ -13,7 +13,7 @@ public class CheckoutFeatureTest extends BaseTest{
     @Test
     public void ShouldBeAbleToCheckoutWithItems() {
 
-        // TODO convert to explicit wait and remove duplication
+        // TODO deal with this in the future: wait 5 seconds
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS) ;
 
         ConfirmationPage confirmationPage = new ConfirmationPage(driver);

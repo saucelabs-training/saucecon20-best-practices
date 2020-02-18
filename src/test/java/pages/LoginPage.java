@@ -1,12 +1,15 @@
 package pages;
 
+import exercises.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage extends BasePage {
+public class LoginPage {
+
+    private final WebDriver driver;
 
     public LoginPage(WebDriver driver) {
-        super(driver);
+        this.driver = driver;
     }
 
     public LoginPage visit() {
@@ -20,8 +23,13 @@ public class LoginPage extends BasePage {
         String passField = "[data-test='password']";
         String loginBtn = "[value='LOGIN']";
 
+        // send username keystrokes
         driver.findElement(By.cssSelector(userField)).sendKeys(username);
+
+        // send password keystrokes
         driver.findElement(By.cssSelector(passField)).sendKeys(password);
+
+        // click login button to submit keystrokes
         driver.findElement(By.cssSelector(loginBtn)).click();
         return new InventoryPage(driver);
     }

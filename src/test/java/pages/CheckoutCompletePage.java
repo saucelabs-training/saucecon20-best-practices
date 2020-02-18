@@ -2,10 +2,13 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class CheckoutCompletePage extends BasePage{
+public class CheckoutCompletePage {
+    //TODO notice the duplication
+    private final WebDriver driver;
 
     public CheckoutCompletePage(WebDriver driver) {
-        super(driver);
+        //TODO notice the duplication
+        this.driver = driver;
     }
 
     public boolean IsLoaded()
